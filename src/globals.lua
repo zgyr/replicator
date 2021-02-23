@@ -1,8 +1,17 @@
+floor, ceil, abs = math.floor, math.ceil, math.abs
+insert, remove, = table.insert, table.remove
+
 position = {
   x = 0,
   y = 0,
   z = 0,
-  d = 0
+  d = 0,
+  b = nil
+}
+
+counters = {
+  steps = 0,
+  turns = 0
 }
 
 if require then
@@ -33,3 +42,5 @@ for i, j in pairs(clist) do
     break
   end
 end
+
+i_size = robot.inventorySize()
