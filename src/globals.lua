@@ -1,5 +1,6 @@
-floor, ceil, abs = math.floor, math.ceil, math.abs
-insert, remove, = table.insert, table.remove
+floor, ceil, abs, sqrt = math.floor, math.ceil, math.abs, math.sqrt
+insert, remove, unpack, concat = table.insert, table.remove, unpack, concat
+inf = math.huge
 
 position = {
   x = 0,
@@ -10,9 +11,11 @@ position = {
 }
 
 counters = {
-  steps = 0,
+  steps = 1,
   turns = 0
 }
+
+sides = {0, 3, 1}
 
 if require then
   component = require('component')
@@ -29,9 +32,11 @@ end
 robot = add_component('robot')
 modem = add_component('modem')
 tunnel = add_component('tunnel')
+eeprom = add_component('eeprom')
 geolyzer = add_component('geolyzer')
 crafting = add_component('crafting')
 generator = add_component('generator')
+navigation = add_component('navigation')
 chunkloader = add_component('chunkloader')
 i_c = add_component('inventory_controller')
 
@@ -44,3 +49,10 @@ for i, j in pairs(clist) do
 end
 
 i_size = robot.inventorySize()
+
+function arr2a_arr(tbl)
+  for k, v in pairs(tbl) do
+    tbl[v] = true
+  end
+end
+
