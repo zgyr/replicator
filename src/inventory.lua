@@ -29,6 +29,16 @@ local tails = {
 
 arr2a_arr(tails)
 
+inventory.get_fullness = function()
+  local counter = 0
+  for slot = 1, i_size do
+    if robot.count(slot) ~= 0 then
+      counter = counter + 1
+    end
+  end
+  return counter
+end
+
 inventory.find = function(side, name, meta)
   if not i_c then return end
   local size, item = i_size
@@ -95,3 +105,4 @@ inventory.get_container = function(min, max)
     move.turn()
   end
 end
+
