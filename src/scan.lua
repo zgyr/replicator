@@ -67,4 +67,27 @@ scan.bedrock = function()
   end
 end
 
+scan.xray = function(hardness, size)
+  size = size or 32
+  if #q_dist == 0 then
+    fill_q_dist()
+  end
+  local blocks, result
+  for x = -size, size do
+    for z = -size, size do
+      blocks = geolyzer.scan(x, z, -32, 1, 1, 32)
+      for y_o = 1, 64 do
+        if compare_hardness(
+          blocks[y_o],
+          hardness,
+          q_dist[x^2 + (y_o-32)^2 + z^2]
+        ) then
+          insert(scan.points.x, position.x + x)
+          insert(scan.points.y, position.y + y_o)
+          insert(scan.points.z, position.z + z)
+        end
+      end
+    end
+  end
+end
 
