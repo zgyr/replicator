@@ -96,13 +96,23 @@ inventory.sort = function()
 end
 
 inventory.get_container = function(min, max)
-  local sides = {1, 3, 3, 3, 3}
-  for side = 1, 5 do
+  local sides = {1, 0, 3, 3, 3, 3}
+  for side = 1, #sides do
     size = i_c.getInventorySize(sides[3])
     if size and size >= min and size <= max then
-      return 3
+      return sides[side]
     end
     move.turn()
+  end
+end
+
+inventory.get_charger = function()
+  local sides = {1, 0, 3, 3, 3, 3}
+  for side = 1, #sides do
+    local name = i_c.getInventoryName(sides[side])
+    if name == 'tile.oc.charger' or name == 'opencomputers:charger' then
+      return sides[side]
+    end
   end
 end
 

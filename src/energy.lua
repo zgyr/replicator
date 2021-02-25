@@ -33,3 +33,28 @@ energy.refuel = function(force)
   end
 end
 
+energy.charge = function(isAllow2Move)
+  energy.refuel()
+  if inventory.get_charger() then
+    network.report('charging')
+    sleep(30)
+  elseif isAllow2Move then
+    local time = os.date('*t')
+    if solar and geolyzer and geolyzer.isSunVisible() and
+    (time.hour > 4 and time.hour < 17) then
+      while not geolyzer.canSeeSky() do
+        step(1)
+      end
+      network.report('charging')
+      while energy.level() < 0.99 and geolyzer.isSunVisible() do
+        time = os.date('*t')
+        if time.hour >= 5 and time.hour < 19 then
+          sleep(60)
+        else
+          break
+        end
+      end
+    end
+  end
+end
+

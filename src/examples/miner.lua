@@ -7,6 +7,8 @@ dofile('/tool.lua')
 dofile('/compass.lua')
 dofile('/assembler.lua')
 
+local home_pos = {x = 0, y = 0, z = 0}
+
 local function init()
   compass.load()
   network.report('init')
@@ -47,10 +49,10 @@ local function init()
 end
 
 local function home()
-  local l_pos = unpack(position)
+  local x, y, z, d = position.x, position.y, position.z, position.d
   local side
-  to(0, -2, 0)
-  to(0, 0, 0)
+  move.to(home_pos.x, home_pos.y-2, home_pos.z)
+  move.to(home_pos.x, home_pos.y, home_pos.z)
   inventory.drop_tails()
   while true do
     side = inventory.get_container(26, inf)
@@ -73,6 +75,8 @@ local function home()
       end
     end
   end
+  move.to(home_pos.x, home_pos.y-2, home_pos.z)
+  move.to(x, y, z, d)
 end
 
 local function main()
