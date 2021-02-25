@@ -1,5 +1,6 @@
 floor, ceil, abs, sqrt = math.floor, math.ceil, math.abs, math.sqrt
 insert, remove, unpack, concat = table.insert, table.remove, unpack, concat
+format = string.format
 inf = math.huge
 
 position = {
@@ -20,13 +21,6 @@ sides = {0, 3, 1}
 if require then
   component = require('component')
   computer = require('computer')
-end
-
-local function add_component(name)
-  name = component.list(name)()
-  if name then
-    return component.proxy(name)
-  end
 end
 
 robot = add_component('robot')

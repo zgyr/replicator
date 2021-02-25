@@ -30,6 +30,12 @@ end
 
 scan.points = {x = {}, y = {}, z = {}}
 
+scan.remove_point = function(point)
+  remove(scan.points.x, point)
+  remove(scan.points.y, point)
+  remove(scan.points.z, point)
+end
+
 scan.xz_x16 = function(min, max, y_offset)
   y_offset = y_offset or -1
   for q = 1, 4 do
