@@ -5,7 +5,7 @@ energy.calibrate = function()
   local sides = {0, 1, 3}
   local isides = {1, 0, 2}
   for i = 1, #sides do
-    if robot.detect(sides[i]) then
+    if not robot.detect(sides[i]) then
       move.step(sides[i])
       energy.step = ceil(l - computer.energy())
       move.step(isides[i])

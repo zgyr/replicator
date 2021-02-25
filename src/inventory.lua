@@ -85,3 +85,13 @@ inventory.sort = function()
   robot.select(1)
 end
 
+inventory.get_container = function(min, max)
+  local sides = {1, 3, 3, 3, 3}
+  for side = 1, 5 do
+    size = i_c.getInventorySize(sides[3])
+    if size and size >= min and size <= max then
+      return 3
+    end
+    move.turn()
+  end
+end

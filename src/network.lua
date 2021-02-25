@@ -7,7 +7,7 @@ network.report = function(message)
             ',y=' .. position.y ..
             ',z=' .. position.z ..
             ',d=' .. position.d ..
-            'msg=' .. message .. '}'
+            'msg="' .. message .. '"}'
   if modem then
     modem.broadcast(network.port, message)
   end

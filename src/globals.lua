@@ -50,3 +50,9 @@ function arr2a_arr(tbl)
   end
 end
 
+function sleep(timeout)
+  local deadline = computer.uptime()+timeout
+  repeat
+    computer.pullSignal(deadline-computer.uptime())
+  until computer.uptime() >= deadline
+end
