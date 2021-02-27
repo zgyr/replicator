@@ -1,4 +1,4 @@
-assembler = {}
+local assembler = {}
 
 workbench = {
   1, 2, 3,
@@ -66,3 +66,4 @@ assembler.clay_block = function()
   crafting.craft()
 end
 
+return assembler

@@ -1,4 +1,4 @@
-energy = {}
+local energy = {}
 
 energy.calibrate = function()
   local l = computer.energy()
@@ -58,3 +58,4 @@ energy.charge = function(isAllow2Move)
   end
 end
 
+return energy

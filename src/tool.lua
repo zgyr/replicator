@@ -1,4 +1,4 @@
-tool = {}
+local tool = {}
 
 tool.wear = 0
 
@@ -16,3 +16,4 @@ tool.check = function()
   tool.wear = tool.wear_step / c_D
 end
 
+return tool

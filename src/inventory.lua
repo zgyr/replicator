@@ -1,4 +1,4 @@
-inventory = {}
+local inventory = {}
 
 local tails = {
   'cobblestone',
@@ -116,3 +116,4 @@ inventory.get_charger = function()
   end
 end
 
+return inventory

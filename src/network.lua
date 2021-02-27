@@ -1,4 +1,4 @@
-network = {}
+local network = {}
 
 network.port = 1
 
@@ -16,3 +16,5 @@ network.report = function(message)
   end
   computer.beep(880, 0.1)
 end
+
+return network

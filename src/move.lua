@@ -1,4 +1,4 @@
-move = {}
+local move = {}
 --[[
 local update_pos = {
   [0] = function() position.y = position.y - 1 end,
@@ -97,3 +97,4 @@ move.to = function(x, y, z, d)
   end
 end
 
+return move

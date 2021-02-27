@@ -1,4 +1,4 @@
-scan = {}
+local scan = {}
 
 local quads = {
   xx = {-7, -7, 1, 1},
@@ -97,3 +97,4 @@ scan.xray = function(hardness, size)
   end
 end
 
+return scan

@@ -1,4 +1,4 @@
-compass = {}
+local compass = {}
 
 compass.save = function()
   local payload = {position.x, position.y, position.z, position.d}
@@ -90,3 +90,4 @@ compass.greed = function()
   end
 end
 
+return compass
