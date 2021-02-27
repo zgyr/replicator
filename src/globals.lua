@@ -56,3 +56,7 @@ function sleep(timeout)
     computer.pullSignal(deadline-computer.uptime())
   until computer.uptime() >= deadline
 end
+
+function require(module)
+  -- pass
+end
