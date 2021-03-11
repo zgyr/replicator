@@ -1,11 +1,11 @@
 dofile('/globals.lua')
-dofile('/move.lua')
-dofile('/energy.lua')
-dofile('/inventory.lua')
-dofile('/scan.lua')
-dofile('/tool.lua')
-dofile('/compass.lua')
-dofile('/assembler.lua')
+local move = require('/move.lua')
+local energy = require('/energy.lua')
+local inventory = require('/inventory.lua')
+local scan = require('/scan.lua')
+local tool = require('/tool.lua')
+local compass = require('/compass.lua')
+local assembler = require('/assembler.lua')
 
 local home_pos = {x = 0, y = 0, z = 0}
 
